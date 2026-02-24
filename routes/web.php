@@ -6,6 +6,7 @@ use App\Http\Controllers\SecurityTestController;
 use App\Http\Controllers\DemoBladeController;
 use App\Http\Controllers\XSSLabController;
 use App\Http\Controllers\ValidationLabController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +67,6 @@ Route::prefix('security-testing')->name('security-testing.')->group(function () 
     // CSRF Testing
     Route::get('/csrf', [SecurityTestController::class, 'csrfTest'])->name('csrf');
     Route::post('/csrf', [SecurityTestController::class, 'csrfTestPost'])->name('csrf.post');
-    
     // Security Headers Testing
     Route::get('/headers', [SecurityTestController::class, 'headersTest'])->name('headers');
     
@@ -75,7 +75,8 @@ Route::prefix('security-testing')->name('security-testing.')->group(function () 
 });
 
 // Hari 3 - Tickets CRUD
-Route::resource('tickets', TicketController::class)->middleware('auth');
+// Route::resource('tickets', TicketController::class)->middleware('auth');
+Route::resource('tickets', TicketController::class);
 
 // Hari 4 - Demo Blade
 Route::prefix('demo-blade')->name('demo-blade.')->group(function () {
