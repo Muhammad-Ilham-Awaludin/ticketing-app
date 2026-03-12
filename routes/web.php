@@ -557,3 +557,7 @@ Route::middleware('auth')->prefix('bac-lab')->name('bac-lab.')->group(function (
             ->parameters(['tickets' => 'ticket']);
     });
 });
+
+Route::get('/error-handling-demo', function () {
+    return view('error-handling-demo.index');
+})->name('error-handling-demo');
